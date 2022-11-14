@@ -15,7 +15,7 @@ input total no of crypto you want to get details of eg -5
 then input crypto symbols eg - BTCUSDT , ETHUDT , ADAUSDT , FTTUSDT(lol) , SOLUSDT
 
 ### Output Screenshot
-
+![output image](./binance_api_output.png)
 
 
 

@@ -1,13 +1,16 @@
-# Binance_Api_Call
+# Binance Api Call
 binance api call using python and c
 
-## How to use
 
 ### Dependencies :
-pip install pandas 
+```pip install pandas```
 
-run the program using - python3 binance_api.py
+### How to use
 
+run the program using - 
+```
+python3 binance_api.py
+```
 
 input total no of crypto you want to get details of eg -5 
 

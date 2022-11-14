@@ -20,6 +20,9 @@ then input crypto symbols eg - BTCUSDT , ETHUDT , ADAUSDT , FTTUSDT(lol) , SOLUS
 ### Output Screenshot
 ![output image](./binance_api_output.png)
 
+### converted data to excel 
+![excel image](./excel_output.png)\
+![excel image](./excel.png)
 
 
-
+### C code still in progress!

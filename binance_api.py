@@ -68,9 +68,14 @@ def response_to_df(response_json):
         df = df[['symbol', 'status', 'baseAsset', 'quoteAsset']]
         global crypto
         crypto = df
-        # df.to_csv('crypto.csv', index=False)
+        get_crypto_price(inputCrypto)
     else:
+        print('No response data found')
         return None
+
+def convert_to_excel(filename):
+    global crypto
+    crypto.to_excel(filename+'.xlsx', index=False)
 
 # Input Crypto Array from User 
 n = int(input("Enter the number of crypto currencies you want to check: "))
@@ -79,7 +84,16 @@ for i in range(n):
     inputCrypto.append(input("Enter the crypto currency symbol eg.-BTCUSDT : "))
 
 get_crypto_details(inputCrypto)
-get_crypto_price(inputCrypto)
 
 
+# crypto.to_excel('cryp.xlsx', index=False)
+
+# Output
 print(crypto)
+
+# Convert to Excel
+excel_name = input("Enter the name of the excel file: ")
+convert_to_excel(excel_name)
+
+
+

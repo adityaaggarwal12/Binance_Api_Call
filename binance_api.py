@@ -73,6 +73,11 @@ def response_to_df(response_json):
         print('No response data found')
         return None
 
+# 
+# convert_to_excel
+# @Param: (string) filename
+# Transform DataFrame to Excel with the inputted filename
+#
 def convert_to_excel(filename):
     global crypto
     crypto.to_excel(filename+'.xlsx', index=False)

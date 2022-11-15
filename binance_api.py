@@ -19,9 +19,10 @@ def get_crypto_details(inputCrypto):
         endpoint = endpoint + '"'+inputCrypto[i]+'",'
     endpoint = endpoint[:-1] + ']'
     # print(endpoint)
+    params = {'symbols': endpoint}
     try:
-        url = 'https://api.binance.com/api/v3/exchangeInfo?symbols='+endpoint
-        response = requests.get(url)
+        url = 'https://api.binance.com/api/v3/exchangeInfo?'
+        response = requests.get(url, params=params)
         response_json = response.json()["symbols"]
         response_to_df(response_json)
 
@@ -47,6 +48,9 @@ def get_crypto_price(inputCrypto):
 
             global prices
             prices.append(response_json['price'])
+
+            excel_name = input("Enter the name of the excel file: ")
+            convert_to_excel(excel_name)
 
             # print(response_json)
         except Exception as e:
@@ -97,8 +101,7 @@ get_crypto_details(inputCrypto)
 print(crypto)
 
 # Convert to Excel
-excel_name = input("Enter the name of the excel file: ")
-convert_to_excel(excel_name)
+
 
 
 

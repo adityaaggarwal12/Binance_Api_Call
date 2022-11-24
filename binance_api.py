@@ -1,8 +1,7 @@
 import requests
 import pandas as pd
 
-# Array of crypto prices
-prices=[]
+
 # DataFrame of crypto details
 crypto=pd.DataFrame(data=None, columns=None)
 
@@ -25,7 +24,6 @@ def get_crypto_details(inputCrypto):
         response = requests.get(url, params=params)
         response_json = response.json()["symbols"]
         response_to_df(response_json)
-
         return (response_json)
     except Exception as e:
         print(e)
@@ -40,26 +38,28 @@ def get_crypto_details(inputCrypto):
 #
 
 def get_crypto_price(inputCrypto):
-    for n in inputCrypto:
-        try:
-            url = 'https://api.binance.com/api/v3/ticker/price?symbol='+n
-            response = requests.get(url)
-            response_json = response.json()
+    endpoint='['
+    for i in range(n):
+        endpoint = endpoint + '"'+inputCrypto[i]+'",'
+    endpoint = endpoint[:-1] + ']'
+    # print(endpoint)
+    params = {'symbols': endpoint}
+    try:
 
-            global prices
-            prices.append(response_json['price'])
+        url = 'https://api.binance.com/api/v3/ticker/price?'
+        response = requests.get(url, params=params)
+        response_json = response.json()
+        prices=[]
+        for i in response_json:
+            prices.append(i["price"])
+        global crypto
+        crypto['price'] = prices
 
-            excel_name = input("Enter the name of the excel file: ")
-            convert_to_excel(excel_name)
-
-            # print(response_json)
-        except Exception as e:
-            print(e)
-            print('There was an error in the API call')
-            return None
-    global crypto
-    crypto['price'] = prices
-
+    except Exception as e:
+        print(e)
+        print('There was an error in the API call')
+        return None
+    
 # 
 # get_crypto_details
 # @Param: [Array] inputCrypto
@@ -92,15 +92,12 @@ inputCrypto = []
 for i in range(n):
     inputCrypto.append(input("Enter the crypto currency symbol eg.-BTCUSDT : "))
 
-get_crypto_details(inputCrypto)
-
-
-# crypto.to_excel('cryp.xlsx', index=False)
-
 # Output
 print(crypto)
 
 # Convert to Excel
+excel_name = input("Enter the name of the excel file: ")
+convert_to_excel(excel_name)
 
 
 

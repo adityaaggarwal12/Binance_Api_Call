@@ -25,4 +25,3 @@ then input crypto symbols eg - BTCUSDT , ETHUDT , ADAUSDT , FTTUSDT(lol) , SOLUS
 ![excel image](./excel.png)
 
 
-### C code still in progress!

@@ -1,4 +1,4 @@
-##IN PROGRESS
+
 
 ### Dependencies :
 ```pip install decouple```
@@ -11,3 +11,5 @@ run the program using -
 ```
 python3 binance_api.py
 ```
+
+enter all the required params

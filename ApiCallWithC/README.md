@@ -10,8 +10,14 @@ gcc apiCall.c -lcurl -o a.out
 ```
 ### Now a resData.json file will be made, To parse/deserialize it -
 
-### In jsonParse.c run 
+### In jsonParse.c
 
+##### dependencies -
+```
+json-c library
+```
+
+run-
 ```
 gcc apiCall.c -ljson-c -o b.out
 ```

@@ -92,6 +92,8 @@ inputCrypto = []
 for i in range(n):
     inputCrypto.append(input("Enter the crypto currency symbol eg.-BTCUSDT : "))
 
+get_crypto_details(inputCrypto)
+
 # Output
 print(crypto)
 
